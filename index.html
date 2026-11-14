@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#101714">
+  <title>Ruleta Europea | Casino Royale</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Casino Royale, inicio">
+        <span class="brand-mark" aria-hidden="true">♠</span>
+        <span><strong>CASINO</strong><small>ROYALE</small></span>
+      </a>
+      <div class="game-label"><span class="live-dot"></span> RULETA EUROPEA <span class="divider">/</span> MESA 01</div>
+      <div class="top-note">SOLO POR DIVERSIÓN <span aria-hidden="true">◆</span></div>
+    </header>
+
+    <section class="dashboard" aria-label="Estado de la partida">
+      <article class="stat-card balance-card">
+        <div class="stat-heading"><span class="stat-icon">◈</span> SALDO DISPONIBLE</div>
+        <div class="stat-value"><span id="balance">1,000</span><small>FICHAS</small></div>
+        <button id="recharge-button" class="text-button" type="button" disabled>↻ Recargar fichas</button>
+      </article>
+      <article class="stat-card">
+        <div class="stat-heading"><span class="stat-icon">▤</span> APUESTA EN MESA</div>
+        <div class="stat-value"><span id="total-bet">0</span><small>FICHAS</small></div>
+        <span class="stat-caption">Apuestas activas</span>
+      </article>
+      <article class="stat-card winner-card">
+        <div class="stat-heading"><span class="stat-icon">✦</span> ÚLTIMO RESULTADO</div>
+        <div class="winner-summary">
+          <span id="last-number" class="number-badge neutral">—</span>
+          <span id="last-color" class="winner-color">Aún no hay tiradas</span>
+        </div>
+      </article>
+      <article class="stat-card history-card">
+        <div class="stat-heading"><span class="stat-icon">◷</span> ÚLTIMOS NÚMEROS</div>
+        <div id="history" class="history-list" aria-label="Historial de resultados">
+          <span class="history-empty">Tu historial aparecerá aquí</span>
+        </div>
+      </article>
+    </section>
+
+    <section class="game-layout">
+      <section class="wheel-panel panel" aria-label="Ruleta">
+        <div class="section-heading">
+          <div><p class="eyebrow">LA MESA</p><h1>Que gire la suerte</h1></div>
+          <span class="round-label">EUROPEA · 0–36</span>
+        </div>
+        <div class="wheel-wrap">
+          <div class="pointer" aria-hidden="true"></div>
+          <canvas id="wheel" aria-label="Ruleta europea de 37 números"></canvas>
+          <div class="wheel-center" aria-hidden="true"><span>♠</span></div>
+        </div>
+        <div class="result-message" id="result-message" aria-live="polite">
+          <span class="message-mark">✦</span>
+          <span>Elige tus apuestas y prueba tu suerte</span>
+        </div>
+        <button id="spin-button" class="spin-button" type="button">
+          <span class="spin-icon" aria-hidden="true">⟳</span>
+          <span>Girar ruleta</span>
+          <span class="button-arrow" aria-hidden="true">→</span>
+        </button>
+        <p class="fairness-note"><span>◆</span> Juego ficticio · Sin dinero real</p>
+      </section>
+
+      <section class="bets-panel panel" aria-label="Tablero de apuestas">
+        <div class="section-heading bets-heading">
+          <div><p class="eyebrow">HAZ TU JUGADA</p><h2>Tablero de apuestas</h2></div>
+          <button id="clear-button" class="clear-button" type="button" disabled>Limpiar <span>↺</span></button>
+        </div>
+
+        <div class="chip-selector">
+          <span class="control-label">VALOR DE FICHA</span>
+          <div class="chip-options" role="group" aria-label="Seleccionar valor de ficha">
+            <button type="button" class="chip-option" data-chip="10" aria-pressed="false"><span>10</span></button>
+            <button type="button" class="chip-option selected" data-chip="25" aria-pressed="true"><span>25</span></button>
+            <button type="button" class="chip-option" data-chip="50" aria-pressed="false"><span>50</span></button>
+            <button type="button" class="chip-option" data-chip="100" aria-pressed="false"><span>100</span></button>
+          </div>
+        </div>
+
+        <div class="betting-grid" id="betting-grid" aria-label="Números de la ruleta">
+          <button class="bet-cell green zero-cell" data-bet="number-0" style="grid-column:1;grid-row:1 / span 3" type="button"><span class="cell-number">0</span></button>
+        </div>
+        <div class="dozens-grid">
+          <button class="bet-cell outside-cell" data-bet="dozen-1" type="button"><span>1ª DOCENA</span><small>1–12 · PAGA 2:1</small></button>
+          <button class="bet-cell outside-cell" data-bet="dozen-2" type="button"><span>2ª DOCENA</span><small>13–24 · PAGA 2:1</small></button>
+          <button class="bet-cell outside-cell" data-bet="dozen-3" type="button"><span>3ª DOCENA</span><small>25–36 · PAGA 2:1</small></button>
+        </div>
+        <div class="outside-grid">
+          <button class="bet-cell outside-cell red-bet" data-bet="red" type="button"><span><i class="color-swatch red-swatch"></i> ROJO</span><small>PAGA 1:1</small></button>
+          <button class="bet-cell outside-cell" data-bet="even" type="button"><span>PAR</span><small>PAGA 1:1</small></button>
+          <button class="bet-cell outside-cell low-bet" data-bet="low" type="button"><span>FALTA</span><small>1–18 · PAGA 1:1</small></button>
+          <button class="bet-cell outside-cell high-bet" data-bet="high" type="button"><span>PASA</span><small>19–36 · PAGA 1:1</small></button>
+          <button class="bet-cell outside-cell" data-bet="odd" type="button"><span>IMPAR</span><small>PAGA 1:1</small></button>
+          <button class="bet-cell outside-cell black-bet" data-bet="black" type="button"><span><i class="color-swatch black-swatch"></i> NEGRO</span><small>PAGA 1:1</small></button>
+        </div>
+        <p class="board-hint">Selecciona una ficha y toca cualquier casilla para apostar.</p>
+      </section>
+    </section>
+
+    <footer class="footer"><span>♠ CASINO ROYALE</span><span>Las fichas no tienen valor monetario. Juega responsablemente.</span><span>EUROPEAN ROULETTE</span></footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
