@@ -94,13 +94,28 @@
           <button class="bet-cell outside-cell" data-bet="dozen-2" type="button"><span>2ª DOCENA</span><small>13–24 · PAGA 2:1</small></button>
           <button class="bet-cell outside-cell" data-bet="dozen-3" type="button"><span>3ª DOCENA</span><small>25–36 · PAGA 2:1</small></button>
         </div>
-        <div class="outside-grid">
-          <button class="bet-cell outside-cell red-bet" data-bet="red" type="button"><span><i class="color-swatch red-swatch"></i> ROJO</span><small>PAGA 1:1</small></button>
-          <button class="bet-cell outside-cell" data-bet="even" type="button"><span>PAR</span><small>PAGA 1:1</small></button>
-          <button class="bet-cell outside-cell low-bet" data-bet="low" type="button"><span>FALTA</span><small>1–18 · PAGA 1:1</small></button>
-          <button class="bet-cell outside-cell high-bet" data-bet="high" type="button"><span>PASA</span><small>19–36 · PAGA 1:1</small></button>
-          <button class="bet-cell outside-cell" data-bet="odd" type="button"><span>IMPAR</span><small>PAGA 1:1</small></button>
-          <button class="bet-cell outside-cell black-bet" data-bet="black" type="button"><span><i class="color-swatch black-swatch"></i> NEGRO</span><small>PAGA 1:1</small></button>
+        <div class="outside-groups" aria-label="Apuestas externas">
+          <div class="outside-group" role="group" aria-label="Apuestas por color">
+            <span class="outside-group-title">COLOR</span>
+            <div class="outside-pair">
+              <button class="bet-cell outside-cell red-bet" data-bet="red" type="button"><span><i class="color-swatch red-swatch"></i> ROJO</span><small>PAGA 1:1</small></button>
+              <button class="bet-cell outside-cell black-bet" data-bet="black" type="button"><span><i class="color-swatch black-swatch"></i> NEGRO</span><small>PAGA 1:1</small></button>
+            </div>
+          </div>
+          <div class="outside-group" role="group" aria-label="Apuestas por paridad">
+            <span class="outside-group-title">PAR / IMPAR</span>
+            <div class="outside-pair">
+              <button class="bet-cell outside-cell" data-bet="even" type="button"><span>PAR</span><small>PAGA 1:1</small></button>
+              <button class="bet-cell outside-cell" data-bet="odd" type="button"><span>IMPAR</span><small>PAGA 1:1</small></button>
+            </div>
+          </div>
+          <div class="outside-group" role="group" aria-label="Apuestas por menor o mayor">
+            <span class="outside-group-title">MENOR / MAYOR</span>
+            <div class="outside-pair">
+              <button class="bet-cell outside-cell low-bet" data-bet="low" type="button"><span>FALTA</span><small>1–18 · PAGA 1:1</small></button>
+              <button class="bet-cell outside-cell high-bet" data-bet="high" type="button"><span>PASA</span><small>19–36 · PAGA 1:1</small></button>
+            </div>
+          </div>
         </div>
         <p class="board-hint">Selecciona una ficha y toca cualquier casilla para apostar.</p>
       </section>
