@@ -53,7 +53,10 @@ button { font: inherit; }
 .number-badge.red { background: #983b3c; }.number-badge.black { background: #202725; }.number-badge.green { background: #167447; }.number-badge.neutral { background: #26332c; color: #9ba69e; }
 .winner-color { color: #c1c9c1; font-size: 11px; }
 .history-list { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 12px; }
-.history-item { width: 23px; height: 23px; display: grid; place-items: center; border-radius: 4px; font-size: 10px; font-weight: 700; }
+.history-item { width: 23px; height: 23px; display: grid; place-items: center; border-radius: 4px; font-size: 10px; font-weight: 700; color: #f5f0e2; border: 1px solid rgba(255,255,255,.12); }
+.history-item.red { background: #983b3c; }
+.history-item.black { background: #202725; }
+.history-item.green { background: #167447; }
 .history-empty { color: #77847a; font-size: 10px; }
 
 .game-layout { display: grid; grid-template-columns: minmax(340px, .82fr) minmax(560px, 1.45fr); gap: 16px; }
